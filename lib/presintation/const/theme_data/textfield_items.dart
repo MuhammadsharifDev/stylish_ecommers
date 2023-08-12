@@ -10,7 +10,7 @@ class TextFieldItems {
       suffixIcon: Icon(suffIcon),
       prefixIcon: Icon(prefIcon),
       filled: true,
-      fillColor: Colors.grey.withOpacity(0.1),
+      fillColor:Colors.white,
       hintText: 'Search...',
       border: OutlineInputBorder(
         borderSide: BorderSide.none,

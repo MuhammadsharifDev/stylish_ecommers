@@ -16,10 +16,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        return  SafeArea(
+        return SafeArea(
           child: Scaffold(
+            backgroundColor: const Color(0xffF9F9F9),
             appBar: AppBar(
-             // backgroundColor: const Color(0xffF9F9F9),
+              backgroundColor: const Color(0xffF9F9F9),
               toolbarHeight: 180,
               leading: const Padding(
                 padding: EdgeInsets.only(left: 12),
@@ -29,60 +30,122 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(AppIcons.stylish_icon),
-                  Text('Stylish',style: GoogleFonts.libreCaslonText(fontSize: 18,fontWeight: FontWeight.w700,color: const Color(0xff4392F9)),),
+                  Text(
+                    'Stylish',
+                    style: GoogleFonts.libreCaslonText(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(0xff4392F9)),
+                  ),
                 ],
               ),
-              bottom:  PreferredSize(
+              bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(5.0),
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 12,right: 12,bottom: 10),
+                    padding:
+                        const EdgeInsets.only(left: 12, right: 12, bottom: 10),
                     child: TextField(
-                      decoration: TextFieldItems.items(prefIcon:Icons.search_rounded, suffIcon: Icons.keyboard_voice_outlined),
+                      decoration: TextFieldItems.items(
+                        prefIcon: Icons.search_rounded,
+                        suffIcon: Icons.keyboard_voice_outlined,
+                      ),
                     ),
                   ),
                 ),
               ),
               actions: [
-                 Padding(
-                   padding: const EdgeInsets.only(right: 12),
-                   child: CircleAvatar(child: Image.asset(AppImages.profile)),
-                 ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: CircleAvatar(child: Image.asset(AppImages.profile)),
+                ),
               ],
-
             ),
-            body:  Padding(
-              padding: const EdgeInsets.only(left: 16,right: 16),
+            body: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: MediaQuery.of(context).size.height*0.009,),
-                    StyleText.items(text: 'All Featured', size: 18, fontWeight: FontWeight.w700),
-                    SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-                    Container(
-                      width: double.infinity,
-                      height: 90,
-                      color: Colors.red,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.all(8),
-                          physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) => Container(
-                            height: 50,
-                            width: 65,
-                            color: Colors.amber,
-                            child: Column(
-                              children: [
-                                Image.asset(state.items[index].image),
-                              ],
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.009,
+                  ),
+                  StyleText.items(
+                      text: 'All Featured',
+                      size: 18,
+                      fontWeight: FontWeight.w700),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 95,
+                    color: Colors.white70,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) => Container(
+                        width: 65,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              state.items[index].image,
                             ),
-                          ),
-                          itemCount: state.items.length,
-                        separatorBuilder: (context, index) => const SizedBox(width: 16,),
+                            Text(state.items[index].text),
+                          ],
+                        ),
+                      ),
+                      itemCount: state.items.length,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 16,
                       ),
                     ),
-                  ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Stack(children: [
+                   Container(
+                       height: 189,
+                       width: double.infinity,
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(12),
+                       ),
+                       child: Image.asset('assets/image_png/Rectangle 48.png',fit: BoxFit.cover,)),
+                    Positioned(
+                      top: 40,
+                      left: 35,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          StyleText.items(
+                              text: '50-40% OFF',
+                              size: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
+                          StyleText.items(text: 'Now in (product', size: 12, fontWeight: FontWeight.w400),
+                          StyleText.items(text: 'All colours', size: 12, fontWeight: FontWeight.w400),
+                          ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(100, 32),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6),
+                                    side: const BorderSide(color: Colors.white),
+                                  )
+                              ),
+                              onPressed: (){}, child: const Center(child: Text('Shop Now ->'))),
+                        ],
+                      ),
+                    ),
+                  ]
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+
+                ],
               ),
             ),
           ),

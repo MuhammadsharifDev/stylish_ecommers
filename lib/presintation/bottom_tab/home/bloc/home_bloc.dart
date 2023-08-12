@@ -19,9 +19,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
 
 final List<ListProduct> productItems=[
-  ListProduct(text: 'Beauty', image: 'assets/image_png/list1_image.jpg'),
-  ListProduct(text: 'Fashion', image: 'assets/image_png/list2_image.jpg'),
-  ListProduct(text: 'Kids', image: 'assets/image_png/list3_image.jpg'),
-  ListProduct(text: 'Mens', image: 'assets/image_png/list4_image.jpg'),
-  ListProduct(text: 'Womens', image: 'assets/image_png/list5_image.jpg'),
+  ListProduct(text: 'Beauty', image: AppImages.list1_image),
+  ListProduct(text: 'Fashion', image: AppImages.list2_image),
+  ListProduct(text: 'Kids', image: AppImages.list3_image),
+  ListProduct(text: 'Mens', image: AppImages.list4_image),
+  ListProduct(text: 'Womens', image: AppImages.list5_image),
 ];
