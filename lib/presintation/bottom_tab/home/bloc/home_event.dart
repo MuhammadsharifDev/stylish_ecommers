@@ -11,3 +11,19 @@ class ListItemsEvent extends HomeEvent{
   List<Object?> get props => [];
 
 }
+
+class ProductsEvent extends HomeEvent{
+  ProductsEvent();
+
+  @override
+  List<Object?> get props => [];
+
+}
+
+class IsLikeEvent extends HomeEvent{
+  final bool isLike;
+  IsLikeEvent({required this.isLike});
+
+  @override
+  List<Object?> get props => [isLike];
+}
