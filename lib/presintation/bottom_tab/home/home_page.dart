@@ -60,17 +60,25 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: MediaQuery.of(context).size.height*0.009,),
                     StyleText.items(text: 'All Featured', size: 18, fontWeight: FontWeight.w700),
                     SizedBox(height: MediaQuery.of(context).size.height*0.04,),
-                    SizedBox(
-                      height: 71,
+                    Container(
+                      width: double.infinity,
+                      height: 90,
+                      color: Colors.red,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
+                          padding: const EdgeInsets.all(8),
                           physics: const BouncingScrollPhysics(),
-                          itemBuilder: (context, index) => Column(
-                           children: [
-                             Text('scscsc '),
-                           ],
+                          itemBuilder: (context, index) => Container(
+                            height: 50,
+                            width: 65,
+                            color: Colors.amber,
+                            child: Column(
+                              children: [
+                                Image.asset(state.items[index].image),
+                              ],
+                            ),
                           ),
-                          itemCount: 8,
+                          itemCount: state.items.length,
                         separatorBuilder: (context, index) => const SizedBox(width: 16,),
                       ),
                     ),
