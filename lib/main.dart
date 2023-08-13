@@ -5,6 +5,7 @@ import 'package:stylish_ecommers_app/presintation/bottom_tab/home/bloc/home_bloc
 import 'package:stylish_ecommers_app/presintation/bottom_tab/search/bloc/search_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/setting/bloc/setting_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/wish_list/bloc/wishlist_bloc.dart';
+import 'package:stylish_ecommers_app/presintation/splash/splash_page/splash_page.dart';
 
 import 'presintation/bottom_tab/main/bloc/main_bloc.dart';
 import 'presintation/bottom_tab/main/main_page.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home:const MainPage()
+          home:const SplashPage()
       ),
     );
   }
