@@ -6,6 +6,7 @@ import 'package:stylish_ecommers_app/presintation/bottom_tab/search/bloc/search_
 import 'package:stylish_ecommers_app/presintation/bottom_tab/setting/bloc/setting_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/wish_list/bloc/wishlist_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/splash/splash_page/splash_page.dart';
+import 'package:stylish_ecommers_app/presintation/splash/unsplash_page/bloc/unsplash_bloc.dart';
 
 import 'presintation/bottom_tab/main/bloc/main_bloc.dart';
 import 'presintation/bottom_tab/main/main_page.dart';
@@ -29,8 +30,10 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_)=>BasketBloc()),
         BlocProvider(create: (_)=>SearchBloc()),
         BlocProvider(create: (_)=>SettingBloc()),
+        BlocProvider(create: (_)=>UnsplashBloc()..add(PageViewEvent())),
       ],
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

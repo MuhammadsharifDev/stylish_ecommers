@@ -8,6 +8,8 @@
   static const String offer_image='assets/image_png/Rectangle 48.png';
   static const String women_image='assets/image_png/women_image.jpg';
   static const String barsofka_image='assets/image_png/barsofka.jpg';
-  static const String frame_2_image='assets/image_png/frame_2.jpg';
+  static const String unsplash_1_image='assets/image_png/unsplash_1.jpg';
+  static const String unsplash_2_image='assets/image_png/unsplash_2.jpg';
+  static const String unsplash_3_image='assets/image_png/unsplash_3.jpg';
 
  }
