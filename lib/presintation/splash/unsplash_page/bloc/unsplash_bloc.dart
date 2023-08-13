@@ -22,7 +22,7 @@ class UnsplashBloc extends Bloc<UnsplashEvent, UnsplashState> {
 final List<PageList> pageItems = [
   PageList(
       description: 'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
-      image: 'assets/image_png/unsplash_1.jpg',
+      image: AppImages.unsplash_1_image,
       title: 'Choose Products'),
   PageList(
       description: 'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',

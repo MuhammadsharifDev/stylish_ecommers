@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:stylish_ecommers_app/presintation/bottom_tab/home/home_page.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/text_style.dart';
 import 'package:stylish_ecommers_app/presintation/splash/unsplash_page/unsplash_page.dart';
 

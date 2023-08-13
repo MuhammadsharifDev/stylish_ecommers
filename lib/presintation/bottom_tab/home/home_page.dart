@@ -50,6 +50,9 @@ class HomePage extends StatelessWidget {
                       decoration: TextFieldItems.items(
                         prefIcon: Icons.search_rounded,
                         suffIcon: Icons.keyboard_voice_outlined,
+                        hintex: 'Search..',
+                        radius: 6,
+                        color: Colors.white,
                       ),
                     ),
                   ),

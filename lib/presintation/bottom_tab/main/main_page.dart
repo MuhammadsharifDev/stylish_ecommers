@@ -18,7 +18,7 @@ class MainPage extends StatelessWidget {
         return Scaffold(
           body: IndexedStack(
             index: state.bottomMenu.index,
-            children: const [
+            children:  [
               HomePage(),
               WishListPage(),
               BasketPage(),
