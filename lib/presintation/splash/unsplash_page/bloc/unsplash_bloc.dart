@@ -11,25 +11,35 @@ part 'unsplash_state.dart';
 
 class UnsplashBloc extends Bloc<UnsplashEvent, UnsplashState> {
   UnsplashBloc() : super(const UnsplashState()) {
-    on<PageViewEvent>(_pageControl);
+    on<PageViewEvent>(_pageView);
+    on<ChangeEvent>(_changePageView);
   }
 
-  void _pageControl(PageViewEvent event, Emitter<UnsplashState> emit) {
-    emit(state.copyWith(items:pageItems));
+  void _pageView(PageViewEvent event, Emitter<UnsplashState> emit) {
+    emit(state.copyWith(items: pageItems));
+  }
+
+  void _changePageView(ChangeEvent event, Emitter<UnsplashState> emit) {
+    emit(state.copyWith(
+      index: event.index,
+    ));
   }
 }
 
 final List<PageList> pageItems = [
   PageList(
-      description: 'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
+      description:
+          'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
       image: AppImages.unsplash_1_image,
       title: 'Choose Products'),
   PageList(
-      description: 'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
+      description:
+          'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
       image: AppImages.unsplash_2_image,
       title: 'Make Payment'),
   PageList(
-      description: 'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
+      description:
+          'Amet minim mollit non deserunt ullamco est\nsit aliqua dolor do amet sint. Velit officia\nconsequat duis enim velit mollit.',
       image: AppImages.unsplash_3_image,
       title: 'Get Your Order'),
 ];

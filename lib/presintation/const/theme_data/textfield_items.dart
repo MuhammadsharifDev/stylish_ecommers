@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class TextFieldItems {
   static InputDecoration items(
-      {required IconData? prefIcon,
+      {required IconData?
+      prefIcon,
       var suffIcon,
       required String hintex,
       required double radius,

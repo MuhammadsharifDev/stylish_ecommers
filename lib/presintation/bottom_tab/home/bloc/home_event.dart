@@ -9,12 +9,10 @@ class ListItemsEvent extends HomeEvent{
 
   @override
   List<Object?> get props => [];
-
 }
 
 class ProductsEvent extends HomeEvent{
   ProductsEvent();
-
   @override
   List<Object?> get props => [];
 

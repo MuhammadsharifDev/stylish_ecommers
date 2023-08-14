@@ -8,6 +8,7 @@ import 'package:stylish_ecommers_app/presintation/const/utils/app_icon.dart';
 import 'package:stylish_ecommers_app/presintation/const/utils/app_images.dart';
 
 import 'bloc/home_bloc.dart';
+import 'widgets/productlist1_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
                     child: TextField(
                       decoration: TextFieldItems.items(
                         prefIcon: Icons.search_rounded,
-                        suffIcon: Icons.keyboard_voice_outlined,
+                        suffIcon: const Icon(Icons.keyboard_voice_outlined),
                         hintex: 'Search..',
                         radius: 6,
                         color: Colors.white,
@@ -184,53 +185,7 @@ class HomePage extends StatelessWidget {
                         ),
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height*0.02,),
-                     SizedBox(
-                       height: 290,
-                       child:ListView.separated(
-                         scrollDirection: Axis.horizontal,
-                         physics: const BouncingScrollPhysics(),
-                         itemBuilder: (context, index) => Container(
-                           width: 200,
-                           decoration: BoxDecoration(
-                             borderRadius: BorderRadius.circular(10),
-                           ),
-                           child: Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             mainAxisAlignment: MainAxisAlignment.center,
-                             children: [
-                               Image.asset(
-                                 state.products[index].image,
-                               ),
-                               StyleText.items(text: state.products[index].text, size: 12, fontWeight: FontWeight.w500,color: Colors.black),
-                               StyleText.items(text: state.products[index].description, size: 10, fontWeight: FontWeight.w400,color: Colors.black),
-                               Text(state.products[index].newCoast),
-                               Row(
-                                 children: [
-                                   Text(state.products[index].oldCoast,style: const TextStyle(color: Colors.grey),),
-                                   const SizedBox(width: 15,),
-                                   StyleText.items(text: state.products[index].offer, size: 20, fontWeight: FontWeight.w500,color: Colors.red),
-
-                                 ],
-                               ),
-                                Row(
-                                 children: [
-                                   IconButton(onPressed: (){
-                                     context.read<HomeBloc>().add(IsLikeEvent(isLike:!state.isLike));
-                                   }, icon:  Icon(state.isLike?Icons.star:Icons.star_border,color: state.isLike?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
-                                   IconButton(onPressed: (){
-                                     context.read<HomeBloc>().add(IsLikeEvent(isLike:!state.isLike));
-                                   }, icon:  Icon(state.isLike?Icons.star:Icons.star_border,color: state.isLike?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
-                                 ],
-                               )
-                             ],
-                           ),
-                         ),
-                         itemCount: state.products.length,
-                         separatorBuilder: (context, index) => const SizedBox(
-                           width: 16,
-                         ),
-                       ) ,
-                     ),
+                    const ProductList1Widget(),
                     SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                      SizedBox(
                        height: 171,

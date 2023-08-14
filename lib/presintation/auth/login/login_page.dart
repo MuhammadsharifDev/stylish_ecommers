@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stylish_ecommers_app/presintation/auth/login/bloc/login_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/auth/sign_up/sign_up_page.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/home/home_page.dart';
+import 'package:stylish_ecommers_app/presintation/bottom_tab/main/main_page.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/elevated_bottom_style.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/text_style.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/textfield_items.dart';
@@ -107,7 +108,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const HomePage(),
+                                  builder: (context) => const MainPage(),
                                 ));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
