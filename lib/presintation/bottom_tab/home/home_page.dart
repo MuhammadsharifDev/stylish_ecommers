@@ -259,11 +259,11 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   IconButton(onPressed: (){
-                                    context.read<HomeBloc>().add(IsLikeEvent(isLike:!state.isLike));
-                                  }, icon:  Icon(state.isLike?Icons.star:Icons.star_border,color: state.isLike?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
+                                    context.read<HomeBloc>().add(ChangeStarsEvent(changeBottom:!state.clickStarBottom));
+                                  }, icon:  Icon(state.clickStarBottom?Icons.star:Icons.star_border,color: state.clickStarBottom?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
                                   IconButton(onPressed: (){
-                                    context.read<HomeBloc>().add(IsLikeEvent(isLike:!state.isLike));
-                                  }, icon:  Icon(state.isLike?Icons.star:Icons.star_border,color: state.isLike?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
+                                    context.read<HomeBloc>().add(ChangeStarsEvent(changeBottom:!state.clickStarBottom));
+                                  }, icon:  Icon(state.clickStarBottom?Icons.star:Icons.star_border,color: state.clickStarBottom?Colors.deepOrangeAccent.withOpacity(0.7):Colors.grey,)),
                                 ],
                               )
                             ],

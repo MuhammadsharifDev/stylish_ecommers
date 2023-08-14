@@ -3,25 +3,28 @@ part of 'home_bloc.dart';
 @immutable
 abstract class HomeEvent {}
 
-
-class ListItemsEvent extends HomeEvent{
-  ListItemsEvent();
+class LoadDataEvent extends HomeEvent {
+  LoadDataEvent();
 
   @override
   List<Object?> get props => [];
 }
 
-class ProductsEvent extends HomeEvent{
-  ProductsEvent();
-  @override
-  List<Object?> get props => [];
+class ProductsLikeEvent extends HomeEvent {
+  final ComeProduct product;
+  final int index;
 
+  ProductsLikeEvent({required this.product, required this.index});
+
+  @override
+  List<Object?> get props => [product, index];
 }
 
-class IsLikeEvent extends HomeEvent{
-  final bool isLike;
-  IsLikeEvent({required this.isLike});
+class ChangeStarsEvent extends HomeEvent {
+  final bool changeBottom;
+
+  ChangeStarsEvent({required this.changeBottom});
 
   @override
-  List<Object?> get props => [isLike];
+  List<Object?> get props => [changeBottom];
 }

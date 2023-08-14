@@ -28,17 +28,12 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => MainBloc()),
-        BlocProvider(
-            create: (_) => HomeBloc()
-              ..add(ListItemsEvent())
-              ..add(ProductsEvent())),
+        BlocProvider(create: (_) => HomeBloc()..add(LoadDataEvent())),
         BlocProvider(create: (_) => WishlistBloc()),
         BlocProvider(create: (_) => BasketBloc()),
         BlocProvider(create: (_) => SearchBloc()),
         BlocProvider(create: (_) => SettingBloc()),
-        BlocProvider(
-            create: (_) => UnsplashBloc()
-              ..add(PageViewEvent())),
+        BlocProvider(create: (_) => UnsplashBloc()..add(PageViewEvent())),
         BlocProvider(create: (_) => LoginBloc()),
         BlocProvider(create: (_) => SignupBloc()),
       ],
