@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stylish_ecommers_app/presintation/auth/login/bloc/login_bloc.dart';
-import 'package:stylish_ecommers_app/presintation/auth/sign_up/sign_up_page.dart';
+import 'package:stylish_ecommers_app/presintation/auth/login/login_page.dart';
+import 'package:stylish_ecommers_app/presintation/auth/sign_up/bloc/signup_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/home/home_page.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/elevated_bottom_style.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/text_style.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/textfield_items.dart';
 import 'package:stylish_ecommers_app/presintation/const/utils/app_icon.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  SignUpPage({super.key});
 
   TextEditingController usernameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc, LoginState>(
+    return BlocBuilder<SignupBloc, SignupState>(
       builder: (context, state) {
         return Form(
           key: _formkey,
@@ -33,7 +34,7 @@ class LoginPage extends StatelessWidget {
                       height: 63,
                     ),
                     StyleText.items(
-                        text: 'Welcome\n Back!',
+                        text: 'Create an\n accaunt',
                         size: 36,
                         fontWeight: FontWeight.w700,
                         color: Colors.black),
@@ -42,12 +43,13 @@ class LoginPage extends StatelessWidget {
                     ),
                     TextFormField(
                       validator: (value) {
-                        if(value!.isEmpty){
+                        if (value!.isEmpty) {
                           return "Please enter your Email";
                         }
-                        String pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
+                        String pattern =
+                            r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
                         RegExp regExp = RegExp(pattern);
-                        if(!regExp.hasMatch(value)){
+                        if (!regExp.hasMatch(value)) {
                           return "You enter invalid email";
                         }
                       },
@@ -65,9 +67,9 @@ class LoginPage extends StatelessWidget {
                     ),
                     TextFormField(
                       controller: passwordController,
-                      obscureText: state.isVisible,
+                      obscureText: state.isVisibleIcon,
                       validator: (value) {
-                        if(value!.isEmpty){
+                        if (value!.isEmpty) {
                           return 'Please enter your password';
                         }
                       },
@@ -76,10 +78,34 @@ class LoginPage extends StatelessWidget {
                         hintex: 'Password',
                         radius: 10,
                         color: Colors.grey.withOpacity(0.1),
-                        suffIcon: IconButton(onPressed: (){
-                          context.read<LoginBloc>().add(IsVisibleEvent(isVisibleIcon: !state.isVisible));
-                        }, icon: Icon(state.isVisible?Icons.visibility_off:Icons.visibility)),
+                        suffIcon: IconButton(
+                            onPressed: () {
+                                context.read<SignupBloc>().add(VisibleEvent(isVisible: !state.isVisibleIcon));
+                            },
+                            icon: Icon(state.isVisibleIcon?Icons.visibility_off:Icons.visibility)),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 31,
+                    ),
+                    TextFormField(
+                      controller: confirmPasswordController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'enter again password';
+                        }
+                      },
+                      decoration: TextFieldItems.items(
+                          prefIcon: Icons.lock,
+                          suffIcon: IconButton(
+                              onPressed: () {
+                                context.read<SignupBloc>().add(VisibleEvent(isVisible: !state.isVisibleIcon));
+                              },
+                              icon: Icon(state.isVisibleIcon?Icons.visibility_off:Icons.visibility),),
+                          hintex: 'ConfirmPassword',
+                          radius: 10,
+                          color: Colors.grey.withOpacity(0.1)),
+
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -99,11 +125,11 @@ class LoginPage extends StatelessWidget {
                       height: 52,
                     ),
                     ElevatedButton(
-                      style: ElevatedStyle.style( height: 55, radius: 4),
+                      style: ElevatedStyle.style(height: 55, radius: 4),
                       onPressed: () {
-                        if(_formkey.currentState!.validate()) {
+                        if (_formkey.currentState!.validate()) {
                           if (usernameController.text.isNotEmpty &&
-                              passwordController.text.isNotEmpty) {
+                              passwordController.text.isNotEmpty && confirmPasswordController.text.isNotEmpty) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -124,15 +150,17 @@ class LoginPage extends StatelessWidget {
                         }
                       },
                       child: Align(
-                          alignment: Alignment.center,
-                          child: StyleText.items(
-                            text: 'Login',
-                            size: 20,
-                            fontWeight: FontWeight.w600,color: Colors.white,
-                          ),
+                        alignment: Alignment.center,
+                        child: StyleText.items(
+                          text: 'Creat Accaunt',
+                          size: 20,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                     SizedBox(height: MediaQuery.of(context).size.height*75/812),
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 75 / 812),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -144,13 +172,17 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        StyleText.items(text: 'Create An Account', size: 14, fontWeight: FontWeight.w400,color: Colors.grey),
+                        StyleText.items(
+                            text: 'I Already Have an Account',
+                            size: 14,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey),
                         TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpPage(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
                           },
                           child: StyleText.items(
-                            text: 'Sign Up',
+                            text: 'Login',
                             size: 14,
                             fontWeight: FontWeight.w600,
                             color: const Color(0xffF83758),

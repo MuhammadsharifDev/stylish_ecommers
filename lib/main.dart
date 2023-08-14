@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/auth/login/bloc/login_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/auth/login/login_page.dart';
+import 'package:stylish_ecommers_app/presintation/auth/sign_up/bloc/signup_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/basket/bloc/basket_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/home/bloc/home_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/search/bloc/search_bloc.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_)=>SettingBloc()),
         BlocProvider(create: (_)=>UnsplashBloc()..add(PageViewEvent())),
         BlocProvider(create: (_)=>LoginBloc()),
+        BlocProvider(create: (_)=>SignupBloc()),
       ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: LoginPage()
+          home: const SplashPage()
       ),
     );
   }

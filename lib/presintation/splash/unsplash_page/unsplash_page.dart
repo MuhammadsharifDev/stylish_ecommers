@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stylish_ecommers_app/presintation/auth/login/login_page.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/home/home_page.dart';
 import 'package:stylish_ecommers_app/presintation/const/theme_data/text_style.dart';
 import 'package:stylish_ecommers_app/presintation/splash/unsplash_page/bloc/unsplash_bloc.dart';
@@ -18,7 +19,7 @@ class UnSplashPage extends StatelessWidget {
             backgroundColor: Colors.white,
             actions: [
             TextButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  LoginPage(),));
             }, child: StyleText.items(text: 'Skip', size: 18, fontWeight: FontWeight.w600,color: Colors.black)),
             ],
           ),
