@@ -30,6 +30,7 @@ class WishListPage extends StatelessWidget {
               preferredSize: Size.fromHeight(5.0),
               child:AppBarBottomWidget(),
             ),
+
             actions: [
               Padding(
                 padding: const EdgeInsets.only(right: 12),
