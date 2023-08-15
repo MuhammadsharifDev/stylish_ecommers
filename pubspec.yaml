@@ -44,6 +44,7 @@ dependencies:
   firebase_analytics: ^10.4.4
   firebase_messaging: ^14.6.5
   google_sign_in: ^6.1.4
+  flutter_local_notifications: ^15.1.0+1
 
 dev_dependencies:
   flutter_test:
