@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stylish_ecommers_app/presintation/auth/login/login_page.dart';
 import 'package:stylish_ecommers_app/presintation/auth/sign_up/bloc/signup_bloc.dart';
 import 'package:stylish_ecommers_app/presintation/bottom_tab/home/home_page.dart';
@@ -165,7 +166,15 @@ class SignUpPage extends StatelessWidget {
                       children: [
                         SocialElevatedBottom.item(icon: AppIcons.apple_icon),
                         SocialElevatedBottom.item(icon: AppIcons.apple_icon),
-                        SocialElevatedBottom.item(icon: AppIcons.apple_icon),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: const CircleBorder(),
+                    padding: const EdgeInsets.all(12),
+                    side: const BorderSide(color: Colors.red, width: 1),
+                  ),
+                  child: SvgPicture.asset(AppIcons.apple_icon),
+                  onPressed: () {},
+                ),
                       ],
                     ),
                     Row(
