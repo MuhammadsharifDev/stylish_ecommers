@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,6 +39,9 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         color: const Color(0xff4392F9)),
                   ),
+                  IconButton(onPressed: (){
+                    FirebaseAuth.instance.signOut();
+                  }, icon: const Icon(Icons.login_outlined)),
                 ],
               ),
               bottom: PreferredSize(

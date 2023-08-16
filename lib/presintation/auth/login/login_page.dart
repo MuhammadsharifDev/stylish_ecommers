@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin{
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if(snapshot.hasData){
-              return MainPage();
+              return const MainPage();
             }
             else {
              return  Scaffold(
@@ -115,11 +115,7 @@ class _LoginPageState extends State<LoginPage> with LoginPageMixin{
                             if (emailController.text.isNotEmpty &&
                                 passwordController.text.isNotEmpty) {
                               context.read<LoginBloc>().add(GmailEvent(email: emailController.text, password: passwordController.text));
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const MainPage(),
-                                  ));
+
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
