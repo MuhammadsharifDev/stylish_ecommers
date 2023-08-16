@@ -12,11 +12,11 @@ import 'package:stylish_ecommers_app/presintation/bottom_tab/wish_list/bloc/wish
 import 'package:stylish_ecommers_app/presintation/splash/splash_page/splash_page.dart';
 import 'package:stylish_ecommers_app/presintation/splash/unsplash_page/bloc/unsplash_bloc.dart';
 import 'presintation/bottom_tab/main/bloc/main_bloc.dart';
+import 'service/notification_service.dart';
 
-void main() async{
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+ void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initialize();
   runApp(const MyApp());
 
 }

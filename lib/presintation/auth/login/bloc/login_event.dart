@@ -11,3 +11,12 @@ class IsVisibleEvent extends LoginEvent{
   @override
   List<Object?> get props => [isVisibleIcon];
 }
+
+class GmailEvent extends LoginEvent{
+ final String email;
+ final String password;
+  GmailEvent({required this.email,required this.password});
+
+  @override
+  List<Object?> get props => [email,password];
+}
